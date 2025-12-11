@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+{% load django_bootstrap5 %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'javascript/.js'%}" defer></script>
+    <title>Principal</title>
+</head>
+<body>
+    <nav class="menu">
+        {% include "estructura/menu.html" %}
+    </nav>
+
+    <div class="cabecera">
+        {% block cabecera %}
+        {% endblock %}
+    </div>
+
+    <main class="contenido">
+        {% block contenido %}
+        {% endblock %}
+    </main>
+    
+    <footer>
+        {% include "estructura/footer.html" %}
+    </footer>
+    
+     {% bootstrap_javascript %}
+</body>
+</html>

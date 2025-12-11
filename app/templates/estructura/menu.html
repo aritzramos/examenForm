@@ -1,0 +1,33 @@
+{% load django_bootstrap5 %}
+
+{% comment %}
+<ul class="menu-ul">
+    <li class="dropdown">
+        <a href="#" class="dropbtn" >Menu desplegable</a>
+        <ul class="dropdown-content">
+            <li><a href="{% url '' %}" >Todas las recetas</a></li>
+            {% if perms.recetas.add_recipe %}
+            <li><a href="{% url '' %}" >Crear receta</a></li>
+            {% endif %}
+            <li><a href="{% url '' %}" >Busqueda receta</a></li>
+        </ul>
+    </li>
+    {% endcomment %}
+    
+    <div class="ml-2">
+        {% if not request.user.is_authenticated %}
+        <a href="{% url 'login' %}" class="btn btn-custom rounded-lg shadow-sm">Iniciar sesión</a>
+        {% endif %}
+
+        {% if not request.user.is_authenticated %}
+        <a href="{% url 'signup' %}" class="btn btn-custom rounded-lg shadow-sm">Registrarse</a>
+        {% endif %}
+
+        {% if request.user.is_authenticated %}
+        <form action="{% url 'logout' %}" method="post" style="display: inline;" class="form-inline">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-logout-custom rounded-lg shadow-sm">Cerrar sesión</button>
+        </form>
+        {% endif %}
+    </div>
+</ul>
