@@ -1,0 +1,19 @@
+{% extends "principal.html" %}
+
+{% block cabecera %}
+    {% include "estructura/menu.html" %}
+{% endblock %}
+
+{% block contenido %}
+
+<h1>Lista de Ensayos Clínicos</h1>
+<ul>
+    {% for ensayo in ensayos %}
+        <li>
+            <p>Nombre: {{ ensayo.titulo }}-</p> <a href="{% url 'ensayo_detalle' ensayo.id %}">Ver en detalle</a>
+        </li>
+    {% empty %}
+        <li>No hay ensayos clínicos disponibles.</li>
+    {% endfor %}
+</ul>
+{% endblock  %}

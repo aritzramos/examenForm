@@ -1,0 +1,16 @@
+{% extends "principal.html" %}
+
+{% block contenido %}
+<div class="container text-center mt-5">
+    <h2>¿Cómo quieres registrarte?</h2>
+    <div class="d-flex justify-content-center gap-4 mt-4">
+        <a href="{% url 'registrar_paciente' %}" class="btn btn-primary btn-lg">
+            Paciente
+        </a>
+
+        <a href="{% url 'registrar_investigador' %}" class="btn btn-secondary btn-lg">
+            Investigador
+        </a>
+    </div>
+</div>
+{% endblock %}

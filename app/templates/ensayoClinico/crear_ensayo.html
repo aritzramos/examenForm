@@ -1,20 +1,17 @@
 {% extends "principal.html" %}
 
-
 {% block cabecera %}
     {% include "estructura/menu.html" %}
 {% endblock %}
 
-
-
 {% block contenido %}
-
+    
 <div class="container mt-4" style="max-width: 700px;">
-    <h2>Crear Paciente</h2>
-    <form action="{% url 'registrar_paciente' %}" method="post">
+    <h2>Crear nuevo ensayo</h2>
+    <form action="{% url 'crear_ensayo' %}" method="post">
         {% load django_bootstrap5 %}
         {% csrf_token %}
-        {% bootstrap_form formulario %}
+        {% bootstrap_form form %}
         {% bootstrap_button "Enviar" button_type="submit" button_class="btn-primary" %}
     </form>
 </div>

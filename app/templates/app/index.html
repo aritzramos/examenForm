@@ -1,16 +1,13 @@
 {% extends "principal.html" %}
 
 {% block cabecera %}
-
+    {% include "estructura/menu.html" %}
 {% endblock %}
 
 {% block contenido %}
     {% load django_bootstrap5 %}
-    <h1 class="text-center pt-5">Bienvenido a la página de recetas Sírvase Caliente</h1>
+    <h1 class="text-center pt-5">Ensayos clínicos</h1>
     {% if request.user.is_authenticated %}
-    <p>
-        Fecha inicio: {{ request.session.fecha_inicio }}
-    </p>
 
     {% endif %}
     

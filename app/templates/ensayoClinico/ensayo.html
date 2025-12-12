@@ -1,0 +1,42 @@
+<div class="container mt-4 text-center">
+    <p>Título del Ensayo Clínico: {{ ensayo.nombre }}</p>
+    <p>Descripción: {{ ensayo.descripcion }}</p>
+    <p>Farmaco: {{ ensayo.farmaco }}</p>
+    <p>Pacientes: 
+        {% for paciente in ensayo.paciente.all %}
+            {{ paciente.nombre }} {% if not forloop.last %}, {% endif %}
+        {% empty %}
+            No hay pacientes asignados.
+        {% endfor %}
+    </p>
+    <p>Nivel de seguimiento: {{ ensayo.nivel_seguimiento }}</p>
+    <p>Fecha de Inicio: {{ ensayo.fecha_inicio }}</p>
+    <p>Fecha de Finalización: {{ ensayo.fecha_fin }}</p>
+    <p>Estado: {% if ensayo.activo %}Activo{% else %} Terminado {% endif %}</p>
+    <p>Creado por: {{ ensayo.creado_por }}</p>
+
+    {% load bootstrap_icons %}
+        {% if recipe.author == request.user.user %}
+        <div class="d-flex gap-2 mt-4 justify-content-center">
+            <div class="mb-2">
+                <form action = "{% url 'eliminar_ensayo' ensayo.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar este ensayo clínico?');" type="submit">
+                        <span>{% bs_icon 'trash' %}</span>                        
+                    </button>
+            
+            
+            
+        </div>
+        {% endif %}
+    </div>
+
+
+
+
+
+
+
+
+    
+
